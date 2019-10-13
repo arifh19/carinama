@@ -43,7 +43,7 @@ class TranslateController extends Controller
             // Mengambil extension file
             $extension = $uploaded_upload->getClientOriginalExtension();
             // Membuat nama file random berikut extension
-            $filename = md5(time()) . "." . $extension;
+            $filename = time() . "." . $extension;
             // Menyimpan log ke folder public/log
             $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'hasil';
             $uploaded_upload->move($destinationPath, $filename);

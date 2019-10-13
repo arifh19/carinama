@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form action="http://192.168.0.119:8000/api/hasil" method="POST" enctype="multipart/form-data" class="form-horizontal" >
+                    <form action="/api/hasil" method="POST" enctype="multipart/form-data">
 
 
                         <div class="preview"></div>
@@ -32,6 +32,31 @@
                         
                     </form>
                 </div>
+                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Nama File</th>
+                            <th>Link</th>
+                            <th>Tanggal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($hasil as $item)
+                            <tr>
+                                <td>{{$item->file}}</td>
+                                <td><a href="/hasil/{{$item->file}}" class="btn btn-primary">Download</a></td>
+                                <td>{{$item->created_at}}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                                <th>Nama File</th>
+                                <th>Link</th>
+                                <th>Tanggal</th>
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
         </div>
     </div>
