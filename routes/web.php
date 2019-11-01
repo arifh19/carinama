@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/training', 'TrainingController@index')->name('training.index');
+Route::post('/import_parse', 'TrainingController@parseImport')->name('import_parse');
+Route::post('/import_process', 'TrainingController@processImport')->name('import_process');
