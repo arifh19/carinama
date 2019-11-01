@@ -12,7 +12,7 @@
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('csv_file') ? ' has-error' : '' }}">
-                                <label for="csv_file" class="col-md-4 control-label">CSV file to import</label>
+                                <label for="csv_file" class="col-md-4 control-label">Excel file to import</label>
 
                                 <div class="col-md-6"> 
                                     <input id="csv_file" type="file" class="form-control" name="csv_file" required>
@@ -23,8 +23,18 @@
                                     </span>
                                     @endif
                                 </div>
+                                
                             </div>
-
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Klasifikasi daerah</label>
+                                <div class="col-md-6"> 
+                                    <select name="jenis" class="form-control select2">
+                                    @foreach($klasifikasi as $kl)
+                                        <option value="{{$kl->nama}}">{{$kl->nama}}</option>
+                                    @endforeach
+                                    </select>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <div class="checkbox">
@@ -42,9 +52,11 @@
                                     </button>
                                 </div>
                             </div>
+                            
                         </form>
                     </div>
                 </div>
+            
             </div>
         </div>
     </div>
