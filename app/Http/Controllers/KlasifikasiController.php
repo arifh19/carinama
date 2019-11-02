@@ -12,6 +12,10 @@ class KlasifikasiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         //
@@ -36,8 +40,9 @@ class KlasifikasiController extends Controller
     public function store(Request $request)
     {
         $klasifikasi=new Klasifikasi;
-        $klasifikasi->nama=$request->nama;
+        $klasifikasi->nama=$request->daerah;
         $klasifikasi->save();
+        return redirect('/training');
     }
 
     /**

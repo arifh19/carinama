@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
+
 
 Auth::routes();
 
@@ -25,4 +24,8 @@ Route::post('/import_process', 'TrainingController@processImport')->name('import
 Route::get('/export', 'IdentifikasiController@export');
 Route::get('/identifikasi', 'IdentifikasiController@index')->name('identifikasi.index');
 Route::post('/import_identifikasi', 'IdentifikasiController@parseImport')->name('import_identifikasi');
+Route::get('/hasil', 'IdentifikasiController@hasilList')->name('hasil');
+
+Route::post('/tambah_daerah', 'KlasifikasiController@store')->name('tambah_daerah');
+
 

@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{ asset('/fontawesome/css/all.min.css') }}" >
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ config('app.name', 'Sistem Manajemen Proker KKN') }}</title>
+    <title>{{ config('app.name', 'Sistem Klasifikasi Nama') }}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- W3School 3.3.6 -->
@@ -47,9 +47,9 @@
             <!-- Logo -->
             <a href="{{ url('home') }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>SI</b>K</span>
+                <span class="logo-mini">SKN</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>SI</b>KKN</span>
+                <span class="logo-lg">SKN</span>
             </a>
 
             <!-- Header Navbar -->
@@ -164,11 +164,11 @@
                             Tapi Lebih enak pakai Request::is()
                             -->
                             {!! Html::smartNav(url('home'), 'fa-dashboard', 'Dashboard') !!}
-                            {!! Html::smartNav(url('training'), 'fa fa-users', 'Training') !!}
-                            {!! Html::smartNav(url('identifikasi'), 'fa fa-users', 'Identifikasi') !!}
+                            {!! Html::smartNav(url('training'), 'fa-save', 'Training') !!}
+                            {!! Html::smartNav(url('identifikasi'), 'fa fa-search', 'Identifikasi') !!}
                            
                      
-                            <li class="treeview {!! Request::is('settings/*') ? 'active' : '' !!}">
+                            <!-- <li class="treeview {!! Request::is('settings/*') ? 'active' : '' !!}">
                                 <a href="#">
                                     <i class="fa fa-cogs"></i> <span>Pengaturan</span>
                                     <span class="pull-right-container">
@@ -187,7 +187,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
 
                             <li class="treeview {!! Request::is('logout') ? 'active' : '' !!}">
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -249,10 +249,10 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        KKN MIMPI POLMAN
+        SISTEM KLASIFIKASI NAMA
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; {!! date("Y") !!} <a href="http://arifh.web.id">        KKN MIMPI POLMAN    </a>.</strong> All rights reserved.
+    <strong>Copyright &copy; {!! date("Y") !!} <a href="#">        SISTEM KLASIFIKASI NAMA   </a>.</strong> All rights reserved.
 </footer>
 
 <!-- ./wrapper -->

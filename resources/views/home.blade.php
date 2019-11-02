@@ -17,7 +17,7 @@
             <div class="callout callout-success">
               <h4>Selamat Datang</h4>
 
-              <p>Sistem Informasi Manajemen Proker</p>
+              <p>Sistem Klasifikasi Nama</p>
 
             </div>
         </div>

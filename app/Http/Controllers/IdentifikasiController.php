@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use App\Imports\IdentifikasiImport;
 use App\Identifikasi;
 use App\Training;
+use App\Hasil;
 use App\Exports\IdentifikasiExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Datatables;
 
 class IdentifikasiController extends Controller
 {
@@ -17,9 +19,14 @@ class IdentifikasiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        return view('identifikasi');
+        $hasils = Hasil::all()->sortBy('desc');
+        return view('identifikasi')->with(compact('hasils'));
     }
 
     /**
@@ -73,7 +80,12 @@ class IdentifikasiController extends Controller
 
     public function export() 
     {
-        return Excel::download(new IdentifikasiExport, 'kucingsuper.xlsx');
+        $hasil = new Hasil;
+        $nama = 'Hasil_'.date("Y.m.d-h:i:sa").'_.xlsx';
+        $hasil->file = $nama;
+        $hasil->save();
+        Excel::store(new IdentifikasiExport, $nama);
+        return Excel::download(new IdentifikasiExport, $nama);
     } 
 
     public function truntrun()
