@@ -21,7 +21,6 @@ class TrainingController extends Controller
     public function parseImport(Request $request) 
     {
         Excel::import(new TrainingImport($request->jenis), $request->file('csv_file'));
-        
         return redirect('/')->with('success', 'All good!');
     }
 

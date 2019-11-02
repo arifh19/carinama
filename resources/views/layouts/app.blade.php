@@ -165,7 +165,7 @@
                             -->
                             {!! Html::smartNav(url('home'), 'fa-dashboard', 'Dashboard') !!}
                             {!! Html::smartNav(url('training'), 'fa fa-users', 'Training') !!}
-                            {!! Html::smartNav(url('translasi'), 'fa fa-users', 'Translasi') !!}
+                            {!! Html::smartNav(url('identifikasi'), 'fa fa-users', 'Identifikasi') !!}
                            
                      
                             <li class="treeview {!! Request::is('settings/*') ? 'active' : '' !!}">
