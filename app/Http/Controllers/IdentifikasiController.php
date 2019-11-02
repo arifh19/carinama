@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Imports\IdentifikasiImport;
 use App\Identifikasi;
 use App\Training;
+use App\Exports\IdentifikasiExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class IdentifikasiController extends Controller
@@ -28,9 +30,10 @@ class IdentifikasiController extends Controller
 
     public function parseImport(Request $request) 
     {
+        DB::table('identifikasis')->truncate();
         Excel::import(new IdentifikasiImport, $request->file('excel_file'));
-        $this->identifikasi();    
-        // return redirect('/home')->with('success', 'All good!');
+        $this->identifikasi();
+        return redirect('/export')->with('success', 'All good!');
     }
 
     public function identifikasi()
@@ -66,6 +69,16 @@ class IdentifikasiController extends Controller
             $id->klasifikasi=$hasil;
             $id->save();
         }
+    }
+
+    public function export() 
+    {
+        return Excel::download(new IdentifikasiExport, 'kucingsuper.xlsx');
+    } 
+
+    public function truntrun()
+    {
+        DB::table('identifikasis')->truncate();
     }
 
     public function create()
