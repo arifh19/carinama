@@ -14,7 +14,7 @@ class CreateTrainingsTable extends Migration
     public function up()
     {
         Schema::create('trainings', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('nama');
             $table->string('klasifikasi');
             $table->timestamps();

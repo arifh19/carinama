@@ -15,16 +15,21 @@ class IdentifikasiImport implements ToModel
     public function model(array $row)
     {
         return new Identifikasi([
-            'nama'     => $row[0],
-            'kawin'    => $row[1],
-            'jeniskelamin'    => $row[2], 
-            'tempatlahir'    => $row[3], 
-            'tanggallahir'    => $row[4], 
-            'alamat'    => $row[5],
-            'provinsi'    => $row[6], 
-            'kabupaten'    => $row[7], 
-            'kecamatan'    => $row[8],
-            'kelurahan'    => $row[9],   
+            'nama' => $row[0],
+            'a'    => $row[1],
+            'b'    => $row[2], 
+            'c'    => $row[3], 
+            'd'    => $row[4], 
+            'e'    => $row[5],
+            'f'    => $row[6], 
+            'g'    => $row[7], 
+            'h'    => $row[8],
+            'i'    => $row[9],
+            'j'    => $row[10],
+            'k'    => $row[11],
+            'l'    => $row[12],
+            'm'    => $row[13], 
+            'n'    => $row[14], 
         ]);
     }
 }

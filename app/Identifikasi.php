@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Identifikasi extends Model
 {
-    public $fillable = ['nama','kawin','jeniskelamin','tempatlahir','tanggallahir','alamat','provinsi','kabupaten','kecamatan','kelurahan'];
+    public $fillable = ['nama','a','b','c','d','e','f','g','h','i','j','k','l','m','n'];
 }

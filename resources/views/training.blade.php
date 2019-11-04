@@ -35,10 +35,9 @@
                                     @endforeach
                                     </select>
                                 </div>
-                                
-                            </div>
-                           
 
+                            </div>
+                        
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
@@ -48,6 +47,7 @@
                             </div>
                             
                         </form>
+
                     </div>
                 </div>
             
@@ -82,4 +82,13 @@
             <!-- /.modal-content -->
     </div>
           <!-- /.modal-dialog -->
+@endsection
+@section('scripts')
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+  })
+</script>
 @endsection
